@@ -1,0 +1,182 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+/* VARZ - Visually Accessible Recognition Zone Styles */
+
+.varz-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px;
+	background: var(--vscode-editor-background);
+	border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.varz-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 120px;
+	height: 48px;
+	padding: 12px 20px;
+
+	/* Big Red Button Styles */
+	background-color: #dc3545 !important;
+	color: white !important;
+	border: 2px solid #c82333 !important;
+	border-radius: 8px !important;
+
+	font-size: 16px !important;
+	font-weight: bold !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.5px !important;
+
+	cursor: pointer !important;
+	transition: all 0.2s ease-in-out !important;
+
+	/* Accessibility */
+	aria-label: attr(data-label);
+	outline: none;
+}
+
+.varz-button:hover {
+	background-color: #c82333 !important;
+	border-color: #bd2130 !important;
+	transform: translateY(-2px) !important;
+	box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4) !important;
+}
+
+.varz-button:active {
+	background-color: #bd2130 !important;
+	border-color: #a71e2a !important;
+	transform: translateY(0) !important;
+	box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3) !important;
+}
+
+.varz-button:focus {
+	outline: 3px solid rgba(220, 53, 69, 0.5) !important;
+	outline-offset: 2px !important;
+}
+
+.varz-button:disabled {
+	background-color: #6c757d !important;
+	border-color: #6c757d !important;
+	color: #ffffff !important;
+	cursor: not-allowed !important;
+	opacity: 0.6 !important;
+	transform: none !important;
+	box-shadow: none !important;
+}
+
+/* Voice Input Button */
+.varz-voice-button {
+	background-color: #dc3545 !important;
+}
+
+.varz-voice-button::before {
+	content: "🎙️";
+	margin-right: 8px;
+	font-size: 18px;
+}
+
+/* Voice Input Active State */
+.varz-voice-button.listening {
+	background-color: #28a745 !important;
+	animation: pulse 1.5s infinite;
+}
+
+.varz-voice-button.listening::before {
+	content: "🔴";
+	animation: blink 1s infinite;
+}
+
+@keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.05); }
+	100% { transform: scale(1); }
+}
+
+@keyframes blink {
+	0%, 50% { opacity: 1; }
+	51%, 100% { opacity: 0.3; }
+}
+
+/* Read Code Button */
+.varz-read-button {
+	background-color: #dc3545 !important;
+}
+
+.varz-read-button::before {
+	content: "📖";
+	margin-right: 8px;
+	font-size: 18px;
+}
+
+/* Run Code Button */
+.varz-run-button {
+	background-color: #dc3545 !important;
+}
+
+.varz-run-button::before {
+	content: "▶️";
+	margin-right: 8px;
+	font-size: 18px;
+}
+
+/* Save Button */
+.varz-save-button {
+	background-color: #dc3545 !important;
+}
+
+.varz-save-button::before {
+	content: "💾";
+	margin-right: 8px;
+	font-size: 18px;
+}
+
+/* Clear Button */
+.varz-clear-button {
+	background-color: #dc3545 !important;
+}
+
+.varz-clear-button::before {
+	content: "🗑️";
+	margin-right: 8px;
+	font-size: 18px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+	.varz-button {
+		background-color: #ff0000 !important;
+		border-color: #ffffff !important;
+		color: #ffffff !important;
+	}
+
+	.varz-button:hover {
+		background-color: #cc0000 !important;
+		border-color: #ffffff !important;
+	}
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+	.varz-button {
+		transition: none !important;
+	}
+
+	.varz-button:hover {
+		transform: none !important;
+	}
+}
+
+/* Large Font Support */
+@media (min-resolution: 120dpi) {
+	.varz-button {
+		font-size: 18px !important;
+		min-width: 140px !important;
+		height: 56px !important;
+	}
+}

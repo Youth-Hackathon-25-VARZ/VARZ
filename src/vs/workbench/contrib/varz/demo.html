@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARZ - Big Red Buttons Demo</title>
+    <link rel="stylesheet" href="browser/media/varz.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .demo-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 2em;
+            color: #dc3545;
+        }
+        .demo-section {
+            margin-bottom: 3em;
+        }
+        .demo-section h2 {
+            color: #dc3545;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 0.5em;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2em;
+        }
+        .demo-note {
+            background: #2d2d2d;
+            padding: 1em;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">🎙️ VARZ - Visually Accessible Recognition Zone</h1>
+
+        <div class="demo-section">
+            <h2>Big Red Buttons - Accessibility First</h2>
+            <div class="demo-note">
+                <strong>Note:</strong> All VARZ buttons are designed to be large, high-contrast, and easily accessible for visually impaired users.
+                They feature red backgrounds, large text, and comprehensive keyboard support.
+            </div>
+
+            <div class="button-grid">
+                <button class="varz-button varz-voice-button" data-label="Voice Input">
+                    Voice Input
+                </button>
+
+                <button class="varz-button varz-read-button" data-label="Read Code">
+                    Read Code
+                </button>
+
+                <button class="varz-button varz-run-button" data-label="Run Code">
+                    Run Code
+                </button>
+
+                <button class="varz-button varz-save-button" data-label="Save File">
+                    Save File
+                </button>
+
+                <button class="varz-button varz-clear-button" data-label="Clear Editor">
+                    Clear Editor
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Accessibility Features</h2>
+            <ul>
+                <li><strong>High Contrast:</strong> Red buttons with white text for maximum visibility</li>
+                <li><strong>Large Size:</strong> Minimum 120px width, 48px height for easy targeting</li>
+                <li><strong>Keyboard Support:</strong> F1-F5 keys for quick access</li>
+                <li><strong>Screen Reader:</strong> Comprehensive ARIA labels and descriptions</li>
+                <li><strong>Focus Indicators:</strong> Clear focus outlines for keyboard navigation</li>
+                <li><strong>Hover Effects:</strong> Visual feedback with smooth transitions</li>
+                <li><strong>Reduced Motion:</strong> Respects user's motion preferences</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>Keyboard Shortcuts</h2>
+            <ul>
+                <li><strong>F1:</strong> Voice Input</li>
+                <li><strong>F2:</strong> Read Code</li>
+                <li><strong>F3:</strong> Run Code</li>
+                <li><strong>F4:</strong> Save File</li>
+                <li><strong>F5:</strong> Clear Editor</li>
+                <li><strong>Ctrl+V:</strong> Toggle VARZ Toolbar</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>Voice Commands</h2>
+            <p>VARZ supports natural language voice commands:</p>
+            <ul>
+                <li>"Run the code" → Executes current file</li>
+                <li>"Save file" → Saves current document</li>
+                <li>"Clear editor" → Clears the code area</li>
+                <li>"Read code" → Reads current code aloud</li>
+                <li>"Voice input" → Activates speech recognition</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Demo functionality
+        document.querySelectorAll('.varz-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const label = this.getAttribute('data-label');
+                alert(`VARZ Button Clicked: ${label}\n\nThis would trigger the corresponding VARZ functionality in VS Code.`);
+            });
+        });
+
+        // Keyboard shortcuts demo
+        document.addEventListener('keydown', function(e) {
+            const keyMap = {
+                'F1': 'Voice Input',
+                'F2': 'Read Code',
+                'F3': 'Run Code',
+                'F4': 'Save File',
+                'F5': 'Clear Editor'
+            };
+
+            if (keyMap[e.key]) {
+                e.preventDefault();
+                alert(`Keyboard Shortcut: ${e.key} → ${keyMap[e.key]}`);
+            }
+        });
+    </script>
+</body>
+</html>

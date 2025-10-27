@@ -179,10 +179,18 @@ registerSingleton(IOpenerService, OpenerService, InstantiationType.Delayed);
 registerSingleton(IMcpGalleryService, McpGalleryService, InstantiationType.Delayed);
 registerSingleton(IAllowedMcpServersService, AllowedMcpServersService, InstantiationType.Delayed);
 
+// VARZ Service Registration
+import { IVARZService } from './contrib/varz/browser/varzService.js';
+import { VARZService } from './contrib/varz/browser/varzService.js';
+registerSingleton(IVARZService, VARZService, InstantiationType.Delayed);
+
 //#endregion
 
 
 //#region --- workbench contributions
+
+// VARZ - Visually Accessible Recognition Zone
+import './contrib/varz/browser/varz.contribution.js';
 
 // Telemetry
 import './contrib/telemetry/browser/telemetry.contribution.js';
